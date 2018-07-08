@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+一覧を表示する予定
+{% endblock title %}
+
+{% block content %}
+<h3>一覧表示</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>日付</th>
+            <th>生徒番号</th>
+            <th>講師番号</th>
+            <th>教科</th>
+            <th>単元</th>
+            <th>テキスト</th>
+            <th>評価</th>
+            <th>コメント</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lesson in lessons %}
+        <tr>
+            <td>{{ lesson.id }}</td>
+            <td>{{ lesson.DateTime }}</td>
+            <td>{{ lesson.StudentID }}</td>
+            <td>{{ lesson.TeacherID }}</td>
+            <td>{{ lesson.Subject }}</td>
+            <td>{{ lesson.Subject_Unit }}</td>
+            <td>{{ lesson.Textbook }}</td>
+            <td>{{ lesson.Rating }}</td>
+            <td>{{ lesson.Rating_Reason }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
